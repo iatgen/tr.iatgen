@@ -4,6 +4,6 @@
 #'
 #' @return something
 #' @export
-export_template <- function(src_lang="en") {
+export.template <- function(src_lang="en") {
    system.file('templates/en_en.csv', package = 'tr.iatgen')
 }

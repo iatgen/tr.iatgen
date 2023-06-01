@@ -24,30 +24,61 @@ devtools::install("iatgen/tr.iatgen");
 
 ``` r
 library(tr.iatgen)
-available_translations()
+available.languages()
 ```
 
 ``` output
-
+      Code                     Description
+1    en_jp             English to Japanese
+2    en_pt            English to Portugese
+3 en_pt-BR  English to Portugese Brazilian
+4    en_tr              English to Turkish
 ```
 
 ### Export translation file template
 
+``` r
+library(tr.iatgen)
+export.template()
+```
+
+``` output
+[1] "/Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library/tr.iatgen/templates/en_en.csv"
+```
+
 ### Validate external translation file
 
+``` r
+library(tr.iatgen)
+validate.language(file="en_cs.csv")
+```
+
+``` output
+[1] "cs"
+```
+
+
 ### Translate qsf file
+
+``` r
+library(tr.iatgen)
+translate.qsf(file="iat-flowins.qsf", lang="pt", dst_file="iat-flowins_pt.qsf")
+```
+
+``` output
+[1] "iat-flowins_pt.qsf"
+```
 
 ### Run a built-in shiny app to facilitate qsf file translation
 
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(tr.iatgen)
-
+tr.iatgen::runApp()
 ```
+
+![runApp output](https://github.com/iatgen/tr.iatgen/blob/main/vignettes/runApp.png?raw=true)
+
 
 ## Translation identifier format
 

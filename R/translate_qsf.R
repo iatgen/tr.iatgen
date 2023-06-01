@@ -111,4 +111,5 @@ translate.qsf <-
       src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
     # Write translated IAT/qsf to `tr_qsf` file.
     writeLines(src_qsf_content, dst_file)
+    return(dst_file)
 }

@@ -1,0 +1,19 @@
+---
+title: "translating-iatgen-qsf"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{translating-iatgen-qsf}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tr.iatgen)
+```
