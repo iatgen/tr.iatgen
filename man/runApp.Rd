@@ -4,7 +4,7 @@
 \alias{runApp}
 \title{Run a standalone Shiny App for iatgen translation}
 \usage{
-runApp(..)
+runApp(...)
 }
 \arguments{
 \item{..}{All parameters are passed to Shiny runApp function}

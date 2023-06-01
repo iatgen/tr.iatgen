@@ -1,11 +1,9 @@
-#' Run a standalone Shiny App for iatgen translation
+#' @title Run a standalone Shiny App for iatgen translation
 #'
 #' @param .. All parameters are passed to Shiny runApp function
 #'
-#' @return
 #' @export
-#'
-#' @examples
-runApp <- function(..) {
-  
+runApp <- function(...) {
+   appDir <- system.file('shiny/app.R', package = 'tr.iatgen')
+   shiny::runApp(..., appDir=appDir)
 }

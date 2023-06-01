@@ -9,6 +9,9 @@ export_template(src_lang = "en")
 \arguments{
 \item{src_lang}{Source language -- "en" for english is the only supported one.}
 }
+\value{
+something
+}
 \description{
 Export blank translation template
 }
