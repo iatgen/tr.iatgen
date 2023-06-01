@@ -2,7 +2,7 @@
 % Please edit documentation in R/translate_qsf.R
 \name{translate.qsf}
 \alias{translate.qsf}
-\title{Title}
+\title{Translate iatgen generated QSF file}
 \usage{
 translate.qsf(file, lang, lang_file = NULL, src_lang = "en", dst_file = NULL)
 }
@@ -10,6 +10,8 @@ translate.qsf(file, lang, lang_file = NULL, src_lang = "en", dst_file = NULL)
 \item{file}{qsf file}
 
 \item{lang}{Target language (abbreviation).}
+
+\item{lang_file}{CSV file containing custom translation.}
 
 \item{src_lang}{Source language -- "en" for english is the only supported one.}
 
@@ -19,5 +21,7 @@ translate.qsf(file, lang, lang_file = NULL, src_lang = "en", dst_file = NULL)
 translated file location
 }
 \description{
-Title
+Read-in iatgen generated QSF file and translated it to a target language
+specified by user either from the list of available languages included
+in tr.iatgen package or using the custom supplied translation file.
 }

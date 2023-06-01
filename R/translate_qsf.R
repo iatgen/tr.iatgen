@@ -1,11 +1,19 @@
-#' Title
+#' @title Translate iatgen generated QSF file
+#' 
+#' @description
+#' Read-in iatgen generated QSF file and translated it to a target language
+#' specified by user either from the list of available languages included
+#' in tr.iatgen package or using the custom supplied translation file.
+#' 
 #'
 #' @param file qsf file
 #' @param lang Target language (abbreviation).
+#' @param lang_file CSV file containing custom translation. 
 #' @param src_lang Source language -- "en" for english is the only supported one.
 #' @param dst_file save the translated file as. If NULL temporary file will be created.
 #'
 #' @return translated file location
+#' @importFrom utils read.csv
 #' @export
 translate.qsf <-
   function(file,
@@ -53,6 +61,12 @@ translate.qsf <-
     
     if (!is.null(lang_file)) {
       inst <- tryCatch({
+        ret <- validate.language(file=lang_file, src_lang=src_lang)
+        if (is.null(ret)) {
+          # error
+          stop("invalidate language file")
+          return(NULL)
+        }
         read.csv(lang_file)
       },error=function(cond) {
         message(paste("Unable to read lang file:", lang_file))

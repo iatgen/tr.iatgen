@@ -2,7 +2,7 @@
 % Please edit documentation in R/validate_language.R
 \name{validate.language}
 \alias{validate.language}
-\title{Title}
+\title{Validate user-supplied file to translate iatgen generated QSF file}
 \usage{
 validate.language(file, src_lang = "en")
 }
@@ -15,5 +15,12 @@ validate.language(file, src_lang = "en")
 heading of the second column (langugate identifier) if successful, NULL if error
 }
 \description{
-Title
+The validate.language function reads in csv file which is expected to contain
+2 columns and 28 rows:
+\itemize{
+\item the first column contains the english language text (as compared to the template file)
+\item the second column contains the translation of the first column in a target language
+The first rows contains heading -- heading of the first column is "en" for English
+and the heading of the second colum is iana formatted target langugage specifier.
+}
 }

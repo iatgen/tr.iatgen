@@ -1,10 +1,11 @@
-#' @title Dataset list of included languages in tr.iatgen
+#' @title List of languages included in tr.iatgen
 #'
-#' @description List of included languages in tr.iatgen.
+#' @description 
+#' The data.frame containing the List of languages included in tr.iatgen.
 #'
 #' @format A data frame with 2 column(s)
 #' \describe{
-#'   \item{langid}{Translation identifier}
-#'   \item{description}{Verbose translation description}
+#'   \item{Code}{Translation identifier}
+#'   \item{Description}{Verbose translation description}
 #' }
 "langs"

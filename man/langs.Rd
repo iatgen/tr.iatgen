@@ -3,18 +3,18 @@
 \docType{data}
 \name{langs}
 \alias{langs}
-\title{Dataset list of included languages in tr.iatgen}
+\title{List of languages included in tr.iatgen}
 \format{
 A data frame with 2 column(s)
 \describe{
-\item{langid}{Translation identifier}
-\item{description}{Verbose translation description}
+\item{Code}{Translation identifier}
+\item{Description}{Verbose translation description}
 }
 }
 \usage{
 langs
 }
 \description{
-List of included languages in tr.iatgen.
+The data.frame containing the List of languages included in tr.iatgen.
 }
 \keyword{datasets}

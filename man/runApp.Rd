@@ -7,7 +7,7 @@
 runApp(...)
 }
 \arguments{
-\item{..}{All parameters are passed to Shiny runApp function}
+\item{...}{All parameters are passed to Shiny runApp function}
 }
 \description{
 Run a standalone Shiny App for iatgen translation
