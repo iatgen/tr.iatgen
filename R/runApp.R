@@ -1,5 +1,10 @@
 #' @title Run a standalone Shiny App for iatgen translation
-#'
+#' @description
+#' This starts R shiny web based application to facilitate iatgen-generated QSF translation.
+#' It is a pass through function to shiny::runApp.
+#' 
+#' \figure{../vignettes/runApp.png}
+#' 
 #' @param ... All parameters are passed to Shiny runApp function
 #'
 #' @examples
