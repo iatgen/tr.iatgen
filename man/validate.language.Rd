@@ -24,3 +24,10 @@ The first rows contains heading -- heading of the first column is "en" for Engli
 and the heading of the second colum is iana formatted target langugage specifier.
 }
 }
+\examples{
+my_csv_file <- system.file("langs/en_jp.csv", package = 'tr.iatgen')
+validate.language(file=my_csv_file)
+
+
+
+}

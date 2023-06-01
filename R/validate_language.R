@@ -12,6 +12,13 @@
 #' @param src_lang Source language -- "en" for english is the only supported one.
 #'
 #' @return heading of the second column (langugate identifier) if successful, NULL if error
+#'
+#' @examples
+#' my_csv_file <- system.file("langs/en_jp.csv", package = 'tr.iatgen')
+#' validate.language(file=my_csv_file)
+#' 
+#' 
+#'
 #' @importFrom utils read.csv
 #' @export
 validate.language <- function(file, src_lang="en") {

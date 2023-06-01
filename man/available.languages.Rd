@@ -6,6 +6,18 @@
 \usage{
 available.languages()
 }
+\value{
+Returns dataframe listing the supported languages.
+
+\describe{
+\item{Code}{Translation identifier}
+\item{Description}{Verbose translation description}
+}
+}
 \description{
 Return the list of available languages for iatgen translation
+}
+\examples{
+available.languages()
+
 }

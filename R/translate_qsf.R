@@ -5,7 +5,6 @@
 #' specified by user either from the list of available languages included
 #' in tr.iatgen package or using the custom supplied translation file.
 #' 
-#'
 #' @param file qsf file
 #' @param lang Target language (abbreviation).
 #' @param lang_file CSV file containing custom translation. 
@@ -13,6 +12,12 @@
 #' @param dst_file save the translated file as. If NULL temporary file will be created.
 #'
 #' @return translated file location
+#' 
+#' @examples
+#' # example code
+#' my_qsf_file <- system.file("examples/iat-flowins.qsf", package = 'tr.iatgen')
+#' translate.qsf(file=my_qsf_file, lang='pt')
+#' 
 #' @importFrom utils read.csv
 #' @export
 translate.qsf <-
@@ -90,7 +95,7 @@ translate.qsf <-
     }
     
     if (is.null(dst_file))
-      dst_file <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = "qsf")
+      dst_file <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".qsf")
     
     # Prepare for translation.
     from <- as.character(src_lang)

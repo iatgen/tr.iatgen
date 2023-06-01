@@ -12,3 +12,8 @@ runApp(...)
 \description{
 Run a standalone Shiny App for iatgen translation
 }
+\examples{
+# this will start shiny UI
+# tr.iatgen::runApp()
+
+}

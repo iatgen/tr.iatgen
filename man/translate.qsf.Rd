@@ -25,3 +25,9 @@ Read-in iatgen generated QSF file and translated it to a target language
 specified by user either from the list of available languages included
 in tr.iatgen package or using the custom supplied translation file.
 }
+\examples{
+# example code
+my_qsf_file <- system.file("examples/iat-flowins.qsf", package = 'tr.iatgen')
+translate.qsf(file=my_qsf_file, lang='pt')
+
+}
