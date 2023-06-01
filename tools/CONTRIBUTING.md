@@ -18,3 +18,9 @@ devtools::build_manual()
 ``` r
 devtools::run_examples()
 ```
+
+## Style R files
+``` r
+styler::style_pkg()
+# or single files: styler::style_file("R/validate_language.R")
+```

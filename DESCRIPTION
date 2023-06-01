@@ -1,11 +1,12 @@
 Package: tr.iatgen
+Date: 2023-06-01
 Title: Translate iatgen Generated QSF File
 Version: 1.0.0
-Authors@R: 
+Authors@R: c(
     person("Michal", "Kouril", , "Michal.Kouril@cchmc.org", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-4786-7934"))
-    person("João Oliveira", "Santos", , "joao.filipe.santos@campus.ul.pt", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0002-4786-7934")),
+    person("João Oliveira", "Santos", , "joao.filipe.santos@campus.ul.pt", role = c("aut"),
+           comment = c(ORCID = "YOUR-ORCID-ID")))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
