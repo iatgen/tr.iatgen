@@ -24,3 +24,8 @@ devtools::run_examples()
 styler::style_pkg()
 # or single files: styler::style_file("R/validate_language.R")
 ```
+
+## Check tests coverage
+``` r
+covr::package_coverage()
+```

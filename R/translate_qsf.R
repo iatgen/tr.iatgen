@@ -30,13 +30,23 @@ translate.qsf <-
 
     src_qsf_content <- tryCatch(
       {
-        readLines(file)
+        # con <- file(file)
+        # try(readLines(con))
+        # file_content <- readLines(con, warn=FALSE, error=)
+        # close(con)
+        # return(file_content)
+        readLines(file, warn=F)
+
+        # con <- file(file, "r", blocking = FALSE)
+        # str <- readLines(con, warn=F)
+        # close(con)
+        # str
       },
       error = function(cond) {
-        message(paste("Unable to read file:", file))
-        message("Here's the original error message:")
-        message(cond)
-        NULL
+        # message(paste("Unable to read file:", file))
+        # message("Here's the original error message:")
+        # message(cond)
+        stop("Unable to read input qsf file.")
       }
     )
 
@@ -44,33 +54,13 @@ translate.qsf <-
       return(NULL)
     }
 
-    if (is.null(lang)) {
-      stop(
-        "No `lang` argument provided. Please provide a valid language column name in the translate.qsf() function call and try again.\n"
-      )
-    } else {
-      lang <- as.character(lang)
-    }
-    if (is.null(src_lang)) {
-      from <- "en"
-    } else {
-      src_lang <- as.character(src_lang)
-    }
-
-    lang_arr <- strsplit(lang, split = "_")[[1]]
-    if (length(lang_arr) == 2) {
-      lang <- lang_arr[1]
-    }
-
-    builtin_lang_file <- file.path("langs", paste0(src_lang, "_", lang, ".csv"))
-
-    builtin_lang_file <- system.file(builtin_lang_file, package = "tr.iatgen")
-
+    # first check if we are provided with a custom language file
     if (!is.null(lang_file)) {
+
       inst <- tryCatch(
         {
-          ret <- validate.language(file = lang_file, src_lang = src_lang)
-          if (is.null(ret)) {
+          ret_lang <- validate.language(file = lang_file, src_lang = src_lang)
+          if (is.null(ret_lang)) {
             # error
             stop("invalidate language file")
             return(NULL)
@@ -84,7 +74,41 @@ translate.qsf <-
           NULL
         }
       )
+
+      if (!is.null(lang) && 
+          ( lang == ret_lang || lang == paste0("en","_",ret_lang))
+        ) {
+        lang <- as.character(lang)
+      } else {
+        stop(
+          "Invalid `lang` or `src_lang` provided. Please check your custom tranlation file\n"
+        )
+      }
+
+    # if there is no custom langugage file work with built-in translations
     } else {
+
+      available_translation_code <- available.languages()$Code
+  
+      if (!is.null(lang) && 
+          ((paste0(src_lang, "_", lang) %in% available_translation_code) ||
+           lang %in% available_translation_code) ) {
+        lang <- as.character(lang)
+      } else {
+        stop(
+          "Invalid `lang` or `src_lang` provided. Please check `available.languages()` for a list of translations\n"
+        )
+      }
+  
+      lang_arr <- strsplit(lang, split = "_")[[1]]
+      if (length(lang_arr) == 2) {
+        lang <- lang_arr[1]
+      }
+
+      builtin_lang_file <- file.path("langs", paste0(src_lang, "_", lang, ".csv"))
+
+      builtin_lang_file <- system.file(builtin_lang_file, package = "tr.iatgen")
+
       inst <- tryCatch(
         {
           read.csv(builtin_lang_file, check.names = FALSE)

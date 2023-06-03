@@ -1,3 +1,5 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("export template", {
+  p <- export.template() 
+  expect_equal(class(p),"character")
+  expect_true(file.exists(p))
 })
