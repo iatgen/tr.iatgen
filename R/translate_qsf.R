@@ -35,7 +35,10 @@ translate.qsf <-
         # file_content <- readLines(con, warn=FALSE, error=)
         # close(con)
         # return(file_content)
-        readLines(file, warn=F)
+        suppressWarnings({
+          readLines(file, warn = F)
+        })
+
 
         # con <- file(file, "r", blocking = FALSE)
         # str <- readLines(con, warn=F)
@@ -56,7 +59,6 @@ translate.qsf <-
 
     # first check if we are provided with a custom language file
     if (!is.null(lang_file)) {
-
       inst <- tryCatch(
         {
           ret_lang <- validate.language(file = lang_file, src_lang = src_lang)
@@ -75,9 +77,9 @@ translate.qsf <-
         }
       )
 
-      if (!is.null(lang) && 
-          ( lang == ret_lang || lang == paste0("en","_",ret_lang))
-        ) {
+      if (!is.null(lang) &&
+        (lang == ret_lang || lang == paste0("en", "_", ret_lang))
+      ) {
         lang <- as.character(lang)
       } else {
         stop(
@@ -85,21 +87,20 @@ translate.qsf <-
         )
       }
 
-    # if there is no custom langugage file work with built-in translations
+      # if there is no custom langugage file work with built-in translations
     } else {
-
       available_translation_code <- available.languages()$Code
-  
-      if (!is.null(lang) && 
-          ((paste0(src_lang, "_", lang) %in% available_translation_code) ||
-           lang %in% available_translation_code) ) {
+
+      if (!is.null(lang) &&
+        ((paste0(src_lang, "_", lang) %in% available_translation_code) ||
+          lang %in% available_translation_code)) {
         lang <- as.character(lang)
       } else {
         stop(
-          "Invalid `lang` or `src_lang` provided. Please check `available.languages()` for a list of translations\n"
+          "Invalid lang or src_lang provided. Please check by calling available.languages for a list of translations."
         )
       }
-  
+
       lang_arr <- strsplit(lang, split = "_")[[1]]
       if (length(lang_arr) == 2) {
         lang <- lang_arr[1]
