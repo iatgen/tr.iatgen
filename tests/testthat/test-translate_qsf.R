@@ -1,6 +1,6 @@
 # These are probably better labeled as usage rather than unit tests.
 # translate.qsf() doesn't take that many parameters so we can probably 
-# fuzzy test all combinations as this is the most important function.
+# fuzzy test many combinations as this is the most important function.
 test_that("translate.qsf() works in a case similar to the example in the manual", {
 
   translate.qsf(file = "../mocks/valid/iat-flowins.qsf",
@@ -88,4 +88,28 @@ test_that("translate.qsf() returns error with invalid lang", {
   # We don't seem to be able to test against an error message string.
   #expect_error(translate.qsf(lang = "xx"), "error string") # will fail
 })
-# TODO: test invalid lang file, invalid dst_file, and some combinations.
+
+# TODO: see if we can test error string.
+test_that("translate.qsf() returns error with invalid lang_file", {
+
+  expect_error(translate.qsf(lang_file = "../mocks/invalid/missing_cells.csv"))
+})
+
+# TODO: see if we can test error string.
+test_that("translate.qsf() returns error with invalid dst_file", {
+
+  expect_error(translate.qsf(dst_file = "invalid"))
+})
+# TODO: see if we can test error string.
+# Cannot test if it handles all arguments being invalid.
+# If `file` is invalid the test always fails.
+# I think it returns an R language error not a function erro.
+# Maybe we should refactor translate.qsf to ensure it correctly checks
+# if the file argument points to a file that exists and can be loaded.
+#test_that("translate.qsf() returns error when all arguments are invalid", {
+
+  #expect_error(translate.qsf(file = "invalid", lang = "invalid",
+  #                           dst_file = "invalid"))
+  #expect_error(translate.qsf(file = "invalid", lang_file = "invalid",
+  #                           dst_file = "invalid"))
+#})
