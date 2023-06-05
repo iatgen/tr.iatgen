@@ -14,3 +14,9 @@ test_that("export.template() returns a path ending in templates/en_en.csv", {
 
   expect_match(export.template(), "templates/en_en\\.csv$")
 })
+
+test_that("export template returns a path to a real file", {
+  p <- export.template()
+
+  expect_true(file.exists(p))
+})

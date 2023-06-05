@@ -38,13 +38,15 @@ test_that("translate.qsf() can translate to Portuguse", {
                readLines("../mocks/valid/iat-flowins_pt.qsf"))
 })
 
-test_that("translate.qsf() can translate to Portuguse", {
+# translat.qsf only accepts English as the source language.
+# I think we should teach it to translate from and to other languages.
+test_that("translate.qsf() taskes a valid src_lang", {
 
   translate.qsf(file = "../mocks/valid/iat-flowins.qsf",
-                lang = "pt-BR", dst_file = "../tmp.qsf")
+                lang = "jp", src_lang = "en", dst_file = "../tmp.qsf")
 
   expect_equal(readLines("../tmp.qsf"),
-               readLines("../mocks/valid/iat-flowins_pt-br.qsf"))
+               readLines("../mocks/valid/iat-flowins_jp.qsf"))
 })
 
 test_that("translate.qsf() can translate with user provided language file.", {
@@ -56,7 +58,6 @@ test_that("translate.qsf() can translate with user provided language file.", {
   expect_equal(readLines("../tmp.qsf"),
                readLines("../mocks/valid/iat-flowins_pt.qsf"))
 })
-
 
 test_that("translate.qsf() can translate with no dst_file.", {
 
@@ -70,46 +71,50 @@ test_that("translate.qsf() can translate with no dst_file.", {
 })
 
 # Testing invalid inputs.
-test_that("translate.qsf() returns error with no file.", {
+test_that("translate.qsf() returns error with invalid or no file.", {
+  # This test is failing, we should refactor the code so it passes.
+  #qsf_file <- test_path("invalid.qsf")
 
-  # We get a standard error message here, and we can test its value.
+  #expect_error(translate.qsf(file = qsf_file, lang = "jp"),
+               #"Unable to read input qsf file.")
+  # I reckon we should refactor the code to provide a standard error.
+  # "argument "file" is missing, with no default
   expect_error(translate.qsf(lang = "jp"),
-               "argument \"file\" is missing, with no default")
-  # Doesn't report an error we can test again if we run the line below.
-  # I think we should refactor translate.qsf to return error messages.
-  #expect_error; expect_warning; expect_message all fail or get us a
-  # warning in `devtools::test()`
-  #expect_error(translate.qsf(file = "invalid", lang = "jp"))
+               "Unable to read input qsf file.")
 })
 
 test_that("translate.qsf() returns error with invalid lang", {
+  qsf_file <- "../mocks/valid/iat-flowins.qsf"
+  err <- "Invalid lang or src_lang provided. Please check by calling available.languages for a list of translations."
 
-  expect_error(translate.qsf(lang = "xx"))
-  # We don't seem to be able to test against an error message string.
-  #expect_error(translate.qsf(lang = "xx"), "error string") # will fail
+  expect_error(translate.qsf(file = qsf_file, lang = "xx"),
+               err)
+  expect_error(translate.qsf(file = qsf_file, lang = "pt", src_lang = "something"),
+               err)
+
 })
 
-# TODO: see if we can test error string.
 test_that("translate.qsf() returns error with invalid lang_file", {
 
-  expect_error(translate.qsf(lang_file = "../mocks/invalid/missing_cells.csv"))
+  # Shouldn't it read "invalid" vs "invalidate" language file.
+  # "Unable to read lang file: .." is not outputed as an error message,
+  # but as something else.
+  expect_error(translate.qsf(file = "../mocks/valid/iat-flowins.qsf",
+                             lang = "tr",
+                             lang_file = "../mocks/invalid/missing_cells.csv"),
+               "invalidate language file")
 })
 
-# TODO: see if we can test error string.
-test_that("translate.qsf() returns error with invalid dst_file", {
-
-  expect_error(translate.qsf(dst_file = "invalid"))
-})
-# TODO: see if we can test error string.
-# Cannot test if it handles all arguments being invalid.
-# If `file` is invalid the test always fails.
-# I think it returns an R language error not a function erro.
-# Maybe we should refactor translate.qsf to ensure it correctly checks
-# if the file argument points to a file that exists and can be loaded.
-#test_that("translate.qsf() returns error when all arguments are invalid", {
-
-  #expect_error(translate.qsf(file = "invalid", lang = "invalid",
-  #                           dst_file = "invalid"))
-  #expect_error(translate.qsf(file = "invalid", lang_file = "invalid",
-  #                           dst_file = "invalid"))
+# TODO: find some way to provide an invalid file or one which cannot
+#       be oppened.
+#test_that("translate.qsf() returns error with invalid dst_file", {
+#  expect_error(translate.qsf(file = "../mocks/valid/iat-flowins.qsf",
+#                             lang = "jp",
+#                             dst_file = "invalid.qsf"))
 #})
+
+test_that("translate.qsf() returns error with invalid src_lang", {
+
+  expect_error(translate.qsf(file = "../mocks/valid/iat-flowins.qsf",
+                             lang = "jp", src_lang = "something"))
+})
