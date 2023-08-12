@@ -1,5 +1,5 @@
-"Code","Description"
-"en_jp"," English to Japanese"
-"en_pt"," English to Portugese"
-"en_pt-BR"," English to Portugese Brazilian"
-"en_tr"," English to Turkish"
+Code,Source,Target,Description
+en_en,English,English,English to English
+en_jp,English,Japanese,English to Japanese
+en_pt,English,Portugese,English to Portugese
+en_pt-BR,English,Portugese Brazilian,English to Portugese Brazilian

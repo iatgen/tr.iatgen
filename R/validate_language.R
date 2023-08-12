@@ -23,19 +23,23 @@ validate.language <- function(file, src_lang = "en") {
   csv <- read.csv(file)
   template_csv <- read.csv(system.file("templates/en_en.csv", package = "tr.iatgen"))
 
+
+
   if (
-    # check if two columns exists
-    ncol(csv) == 2 &&
+    # check if at least two columns exists
+    ncol(csv) >= 2 &&
       # check if the input file has first column "en"
       names(csv)[1] == "en" &&
-      nrow(csv) == 28 &&
+      nrow(csv) == nrow(template_csv) &&
       # check if the strings in the first column correspond to our template
       all(sort(csv$en) == sort(template_csv$en)) &&
-      # check if the second column has non-empty strings
-      all(!(csv[, 1] == ""))
+      # check if the all cells have non-empty strings
+      all(!(csv == "")) &&
+      # if multiple translations make sure they are called distinctly
+      length(unique(names(csv)[-1])) == length(names(csv)[-1])
   ) {
     # return name of the second column if successful
-    dst_lang <- names(csv)[2]
+    dst_lang <- names(csv)[-1]
     return(dst_lang)
   }
   return(NULL) # -- if error

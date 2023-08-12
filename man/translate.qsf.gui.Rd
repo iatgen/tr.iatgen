@@ -20,5 +20,5 @@ See the official iatgen website for a web based alternative.
 }
 \examples{
 ## Not run (requires an interactive session)
-#translate.qsf.gui() 
+# translate.qsf.gui()
 }

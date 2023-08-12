@@ -4,6 +4,10 @@
 #' Read-in iatgen generated QSF file and translated it to a target language
 #' specified by user either from the list of available languages included
 #' in tr.iatgen package or using the custom supplied translation file.
+#' 1. 'en' -> lang
+#' 2. src_lang -> 'en' -> lang (optionaly provided either 'en' -> src_lang or 'en' -> lang)
+#' 3. src_lang -> mid_lang -> 'en' -> lang (provided file src_lang -> mid_lang)
+#' 4. src_lang -> 'en' -> mid_lang -> lang (provided file mid_lan -> lang)
 #'
 #' @param file qsf file
 #' @param lang Target language (abbreviation).
@@ -59,26 +63,22 @@ translate.qsf <-
 
     # first check if we are provided with a custom language file
     if (!is.null(lang_file)) {
+      ret_lang <- validate.language(file = lang_file, src_lang = src_lang)
+      if (is.null(ret_lang)) {
+        stop("Invalid language file.")
+        return(NULL)
+      }
       inst <- tryCatch(
         {
-          ret_lang <- validate.language(file = lang_file, src_lang = src_lang)
-          if (is.null(ret_lang)) {
-            # error
-            stop("invalidate language file")
-            return(NULL)
-          }
           read.csv(lang_file)
         },
         error = function(cond) {
-          message(paste("Unable to read lang file:", lang_file))
-          message("Here's the original error message:")
-          message(cond)
-          NULL
+          stop("Unable to read language file.")
         }
       )
 
       if (!is.null(lang) &&
-        (lang == ret_lang || lang == paste0("en", "_", ret_lang))
+        (lang %in% ret_lang || lang %in% paste0("en", "_", ret_lang))
       ) {
         lang <- as.character(lang)
       } else {
@@ -103,7 +103,9 @@ translate.qsf <-
 
       lang_arr <- strsplit(lang, split = "_")[[1]]
       if (length(lang_arr) == 2) {
-        lang <- lang_arr[1]
+        lang <- lang_arr[2]
+
+        # FIXME: validate lang_arr[1]?
       }
 
       builtin_lang_file <- file.path("langs", paste0(src_lang, "_", lang, ".csv"))
@@ -126,7 +128,8 @@ translate.qsf <-
     if (is.null(inst)) {
       return(NULL)
     }
-
+    
+    # now we have inst (mapping from src to dst language)
     if (is.null(dst_file)) {
       dst_file <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".qsf")
     }
@@ -142,14 +145,31 @@ translate.qsf <-
         )
       )
     }
-    if (!src_lang %in% colnames(inst)) {
-      stop(
-        "The `from` language column name provided is not available in the translations file!\nPlease provide a valid from language column name or none at all in the tr_iatgen() function call and try again.\n"
-      )
-    }
-    # Translate IAT.
-    for (i in seq_len(nrow(inst))) {
-      src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
+
+    # If src is not english translate to english first.
+    if (src_lang != "en") {
+      # either the profided file has both src_lang and lang included or we go through 'en'
+
+      if (src_lang %in% colnames(inst)) {
+        # src_lang and lang included go direct
+        for (i in seq_len(nrow(inst))) {
+          src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
+        }
+      } else {
+        # src_lang not included -- first see if we can "untranslate" to 'en'
+      }
+    } else {
+      # src_lang is 'en'
+      if (!src_lang %in% colnames(inst)) {
+        stop(
+          "The `from` language column name provided is not available in the translations file!\nPlease provide a valid from language column name or none at all in the tr_iatgen() function call and try again.\n"
+        )
+      }
+
+      # Translate IAT.
+      for (i in seq_len(nrow(inst))) {
+        src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
+      }
     }
     # Write translated IAT/qsf to `tr_qsf` file.
     writeLines(src_qsf_content, dst_file)
