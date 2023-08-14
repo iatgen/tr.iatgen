@@ -26,11 +26,12 @@ available.languages()
 ```
 
 ``` output
-      Code                     Description
-1    en_jp             English to Japanese
-2    en_pt            English to Portugese
-3 en_pt-BR  English to Portugese Brazilian
-4    en_tr              English to Turkish
+      Code  Source              Target                    Description
+1    en_en English             English             English to English
+2    en_jp English            Japanese            English to Japanese
+3    en_pt English           Portugese           English to Portugese
+4 en_pt-BR English Portugese Brazilian English to Portugese Brazilian
+5    en_tr English             Turkish             English to Turkish
 ```
 
 ### Export translation file template
