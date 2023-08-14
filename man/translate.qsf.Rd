@@ -24,12 +24,6 @@ translated file location
 Read-in iatgen generated QSF file and translated it to a target language
 specified by user either from the list of available languages included
 in tr.iatgen package or using the custom supplied translation file.
-\enumerate{
-\item 'en' -> lang
-\item src_lang -> 'en' -> lang (optionaly provided either 'en' -> src_lang or 'en' -> lang)
-\item src_lang -> mid_lang -> 'en' -> lang (provided file src_lang -> mid_lang)
-\item src_lang -> 'en' -> mid_lang -> lang (provided file mid_lan -> lang)
-}
 }
 \examples{
 # example code

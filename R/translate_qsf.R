@@ -4,10 +4,12 @@
 #' Read-in iatgen generated QSF file and translated it to a target language
 #' specified by user either from the list of available languages included
 #' in tr.iatgen package or using the custom supplied translation file.
-#' 1. 'en' -> lang
-#' 2. src_lang -> 'en' -> lang (optionaly provided either 'en' -> src_lang or 'en' -> lang)
-#' 3. src_lang -> mid_lang -> 'en' -> lang (provided file src_lang -> mid_lang)
-#' 4. src_lang -> 'en' -> mid_lang -> lang (provided file mid_lan -> lang)
+#
+# FIXME:
+# 1. 'en' -> lang
+# 2. src_lang -> 'en' -> lang (optionaly provided either 'en' -> src_lang or 'en' -> lang)
+# 3. src_lang -> mid_lang -> 'en' -> lang (provided file src_lang -> mid_lang)
+# 4. src_lang -> 'en' -> mid_lang -> lang (provided file mid_lan -> lang)
 #'
 #' @param file qsf file
 #' @param lang Target language (abbreviation).
