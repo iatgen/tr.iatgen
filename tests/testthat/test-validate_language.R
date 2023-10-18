@@ -61,7 +61,7 @@ test_that("validate.language() returns correct code for Brazilian Portuguese", {
 })
 
 test_that("validate.language() returns correct code for European Portuguese", {
-  mock_path <- "../mocks/valid/en_pt.csv"
+  mock_path <- "../mocks/valid/en_pt-pt.csv"
 
   expect_equal(validate.language(mock_path), "pt-pt")
 })
