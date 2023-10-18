@@ -22,7 +22,7 @@
 #' @examples
 #' # example code
 #' my_qsf_file <- system.file("examples/iat-flowins.qsf", package = "tr.iatgen")
-#' translate.qsf(file = my_qsf_file, lang = "pt")
+#' translate.qsf(file = my_qsf_file, lang = "pt-pt")
 #'
 #' @importFrom utils read.csv
 #' @export
@@ -72,7 +72,7 @@ translate.qsf <-
       }
       inst <- tryCatch(
         {
-          read.csv(lang_file)
+          read.csv(lang_file, check.names = FALSE)
         },
         error = function(cond) {
           stop("Unable to read language file.")
@@ -85,7 +85,7 @@ translate.qsf <-
         lang <- as.character(lang)
       } else {
         stop(
-          "Invalid `lang` or `src_lang` provided. Please check your custom tranlation file\n"
+          "Invalid `lang` or `src_lang` provided. Please check your custom translation file\n"
         )
       }
 
@@ -130,7 +130,7 @@ translate.qsf <-
     if (is.null(inst)) {
       return(NULL)
     }
-    
+
     # now we have inst (mapping from src to dst language)
     if (is.null(dst_file)) {
       dst_file <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".qsf")
@@ -170,7 +170,14 @@ translate.qsf <-
 
       # Translate IAT.
       for (i in seq_len(nrow(inst))) {
-        src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
+        prefix <- ""
+        postfix <- ""
+        src_qsf_content <- gsub(
+          paste0(prefix, inst[i, src_lang], postfix),
+          paste0(prefix, inst[i, lang], postfix),
+          src_qsf_content,
+          fixed = TRUE
+        )
       }
     }
     # Write translated IAT/qsf to `tr_qsf` file.

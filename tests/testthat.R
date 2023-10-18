@@ -7,7 +7,7 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 #' @import dplyr
 #' @import testthat
-#' 
+#'
 library(testthat)
 library(tr.iatgen)
 library(dplyr)

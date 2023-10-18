@@ -53,17 +53,17 @@ test_that("validate.language() returns correct code for the template", {
 # })
 
 # This one shows some behavior that should probably be fixed.
-# validate.language() returns pt.BR when translate.qsf() expects pt-BR.
+# validate.language() returns pt-br when translate.qsf() expects pt-br.
 test_that("validate.language() returns correct code for Brazilian Portuguese", {
-  mock_path <- "../mocks/valid/en_pt-BR.csv"
+  mock_path <- "../mocks/valid/en_pt-br.csv"
 
-  expect_equal(validate.language(mock_path), "pt.BR")
+  expect_equal(validate.language(mock_path), "pt-br")
 })
 
 test_that("validate.language() returns correct code for European Portuguese", {
   mock_path <- "../mocks/valid/en_pt.csv"
 
-  expect_equal(validate.language(mock_path), "pt")
+  expect_equal(validate.language(mock_path), "pt-pt")
 })
 
 test_that("validate.language() returns correct code for Turkish", {

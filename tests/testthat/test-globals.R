@@ -1,4 +1,3 @@
-
 # Pointless test given the cotents of globals.R + available_languages.R
 # Maybe it could be useful in the future...but feel free to delete it.
 test_that("langs global variable contains the right values", {
