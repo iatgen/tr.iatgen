@@ -4,7 +4,7 @@
 test_that("translate.qsf() works in a case similar to the example in the manual", {
   translate.qsf(
     file = "../mocks/valid/iat-flowins.qsf",
-    lang = "pt", dst_file = "../tmp.qsf"
+    lang = "pt-pt", dst_file = "../tmp.qsf"
   )
 
   expect_equal(
@@ -41,7 +41,7 @@ test_that("translate.qsf() can translate to Turkish", {
 test_that("translate.qsf() can translate to Portuguse", {
   translate.qsf(
     file = "../mocks/valid/iat-flowins.qsf",
-    lang = "pt", dst_file = "../tmp.qsf"
+    lang = "pt-pt", dst_file = "../tmp.qsf"
   )
 
   expect_equal(
@@ -67,7 +67,7 @@ test_that("translate.qsf() taskes a valid src_lang", {
 test_that("translate.qsf() can translate with user provided language file.", {
   translate.qsf(
     file = "../mocks/valid/iat-flowins.qsf",
-    lang = "pt", lang_file = "../mocks/valid/en_pt.csv",
+    lang = "pt-pt", lang_file = "../mocks/valid/en_pt.csv",
     dst_file = "../tmp.qsf"
   )
 
@@ -111,7 +111,7 @@ test_that("translate.qsf() returns error with invalid lang", {
     err
   )
   expect_error(
-    translate.qsf(file = qsf_file, lang = "pt", src_lang = "something"),
+    translate.qsf(file = qsf_file, lang = "pt-pt", src_lang = "something"),
     err
   )
 })

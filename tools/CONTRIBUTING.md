@@ -34,4 +34,5 @@ covr::package_coverage()
 
 * Add language file to inst/langs
 * Add a line to inst/langs/langs.csv
-* Run source("data-raw/langs.R")
+* Run source("data-raw/langs.R") to recreate R/sysdata.rda
+* Check in all three files (language file, langs.csv and sysdata.rda)
