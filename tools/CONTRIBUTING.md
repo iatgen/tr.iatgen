@@ -29,3 +29,9 @@ styler::style_pkg()
 ``` r
 covr::package_coverage()
 ```
+
+## Adding a language
+
+* Add language file to inst/langs
+* Add a line to inst/langs/langs.csv
+* Run source("data-raw/langs.R")
