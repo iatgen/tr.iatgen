@@ -20,7 +20,7 @@
 #' @importFrom utils read.csv
 #' @export
 validate.language <- function(file, src_lang = "en") {
-  csv <- read.csv(file,check.names=FALSE)
+  csv <- read.csv(file, check.names = FALSE)
   template_csv <- read.csv(system.file("templates/en_en.csv", package = "tr.iatgen"))
 
 
