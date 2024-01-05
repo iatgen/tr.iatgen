@@ -13,7 +13,7 @@ runApp(...)
 This starts R shiny web based application to facilitate iatgen-generated QSF translation.
 It is a pass through function to shiny::runApp.
 
-\figure{../vignettes/runApp.png}
+\figure{runApp.png}
 }
 \examples{
 # this will start shiny UI

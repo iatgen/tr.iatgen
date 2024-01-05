@@ -1,14 +1,13 @@
 Package: tr.iatgen
-Date: 2023-06-01
-Title: Translate iatgen Generated QSF File
+Date: 2024-01-05
+Title: Translate Iatgen Generated QSF File
 Version: 1.0.0
 Authors@R: c(
     person("Michal", "Kouril", , "Michal.Kouril@cchmc.org",
            role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4786-7934")),
     person("João O.", "Santos", , "joao.filipe.santos@campus.ul.pt",
            role = c("aut"), comment = c(ORCID = "0000-0001-6640-126X")))
-Description: This packages automates the process of translating the
-             instructions in iatgen-generated .qsf (Qualtrics survey
+Description: Automation of translating the instructions in iatgen-generated .qsf (Qualtrics survey
 	     files) to other languages using either officially supported and
 	     user-supplied translations.
 License: MIT + file LICENSE
