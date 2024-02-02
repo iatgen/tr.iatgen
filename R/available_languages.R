@@ -1,6 +1,6 @@
 #' @title Return the list of available languages for iatgen translation
 #'
-#' @returns Returns dataframe listing the supported languages.
+#' @return Returns data.frame listing the supported languages.
 #'
 #' \describe{
 #'   \item{Code}{Translation identifier}

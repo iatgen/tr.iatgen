@@ -9,6 +9,9 @@ runApp(...)
 \arguments{
 \item{...}{All parameters are passed to Shiny runApp function}
 }
+\value{
+No return value, called for side effects (running the shiny App UI)
+}
 \description{
 This starts R shiny web based application to facilitate iatgen-generated QSF translation.
 It is a pass through function to shiny::runApp.
@@ -16,7 +19,8 @@ It is a pass through function to shiny::runApp.
 \figure{runApp.png}
 }
 \examples{
-# this will start shiny UI
-# tr.iatgen::runApp()
-
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+# this will start the shiny UI
+tr.iatgen::runApp()
+\dontshow{\}) # examplesIf}
 }

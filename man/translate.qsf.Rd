@@ -18,7 +18,7 @@ translate.qsf(file, lang, lang_file = NULL, src_lang = "en", dst_file = NULL)
 \item{dst_file}{save the translated file as. If NULL temporary file will be created.}
 }
 \value{
-translated file location
+Translated file path/location (class: character)
 }
 \description{
 Read-in iatgen generated QSF file and translated it to a target language

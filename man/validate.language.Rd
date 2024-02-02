@@ -12,7 +12,7 @@ validate.language(file, src_lang = "en")
 \item{src_lang}{Source language -- "en" for english is the only supported one.}
 }
 \value{
-heading of the second column (langugate identifier) if successful, NULL if error
+Heading of the second column (language identifier, class: character) if successful, NULL if error
 }
 \description{
 The validate.language function reads in csv file which is expected to contain

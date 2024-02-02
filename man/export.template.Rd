@@ -10,7 +10,7 @@ export.template(src_lang = "en")
 \item{src_lang}{Source language -- "en" for english is the only supported one.}
 }
 \value{
-the path to the template.
+The path to the template file (class: character).
 }
 \description{
 Export blank translation template

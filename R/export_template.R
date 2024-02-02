@@ -2,7 +2,7 @@
 #'
 #' @param src_lang Source language -- "en" for english is the only supported one.
 #'
-#' @return the path to the template.
+#' @return The path to the template file (class: character).
 #'
 #' @examples
 #' export.template()
