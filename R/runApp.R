@@ -6,10 +6,11 @@
 #' \figure{runApp.png}
 #'
 #' @param ... All parameters are passed to Shiny runApp function
+#' @return No return value, called for side effects (running the shiny App UI)
 #'
-#' @examples
-#' # this will start shiny UI
-#' # tr.iatgen::runApp()
+#' @examplesIf interactive()
+#' # this will start the shiny UI
+#' tr.iatgen::runApp()
 #'
 #' @importFrom shiny runApp
 #' @export

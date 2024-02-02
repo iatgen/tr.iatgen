@@ -7,7 +7,7 @@
 translate.qsf.gui()
 }
 \value{
-translated file location
+Translated file path/location (class: character)
 }
 \description{
 This function allows you to translate an iatgen QSF file by visually
@@ -19,6 +19,7 @@ user-friendly for less technical users.
 See the official iatgen website for a web based alternative.
 }
 \examples{
-## Not run (requires an interactive session)
-# translate.qsf.gui()
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+translate.qsf.gui()
+\dontshow{\}) # examplesIf}
 }

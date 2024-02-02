@@ -17,7 +17,7 @@
 #' @param src_lang Source language -- "en" for english is the only supported one.
 #' @param dst_file save the translated file as. If NULL temporary file will be created.
 #'
-#' @return translated file location
+#' @return Translated file path/location (class: character)
 #'
 #' @examples
 #' # example code

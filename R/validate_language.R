@@ -11,7 +11,7 @@
 #' @param file Source CSV file to validate
 #' @param src_lang Source language -- "en" for english is the only supported one.
 #'
-#' @return heading of the second column (langugate identifier) if successful, NULL if error
+#' @return Heading of the second column (language identifier, class: character) if successful, NULL if error
 #'
 #' @examples
 #' my_csv_file <- system.file("langs/en_jp.csv", package = "tr.iatgen")

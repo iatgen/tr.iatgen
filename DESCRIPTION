@@ -1,19 +1,22 @@
 Package: tr.iatgen
 Date: 2024-01-05
-Title: Translate Iatgen Generated QSF File
+Title: Translate 'iatgen' Generated QSF Files
 Version: 1.0.0
 Authors@R: c(
     person("Michal", "Kouril", , "Michal.Kouril@cchmc.org",
            role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4786-7934")),
     person("João", "O. Santos", , "joao.filipe.santos@campus.ul.pt",
            role = c("aut"), comment = c(ORCID = "0000-0001-6640-126X")))
-Description: Automation of translating the instructions in iatgen-generated .qsf (Qualtrics survey
-	     files) to other languages using either officially supported and
-	     user-supplied translations.
+Description: Automates translating the instructions of 'iatgen' generated qsf
+             (Qualtrics survey files) to other languages using either officially
+             supported or user-supplied translations (for tutorial see Santos
+             et al., 2023 <doi:10.17504/protocols.io.kxygx34jdg8j/v1>).
+URL: https://github.com/iatgen/tr.iatgen
+BugReports: https://github.com/iatgen/tr.iatgen/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.0
 Suggests: 
     knitr,
     rmarkdown,

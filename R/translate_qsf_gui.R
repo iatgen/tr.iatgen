@@ -9,11 +9,10 @@
 #'
 #' See the official iatgen website for a web based alternative.
 #'
-#' @return translated file location
+#' @return Translated file path/location (class: character)
 #'
-#' @examples
-#' ## Not run (requires an interactive session)
-#' # translate.qsf.gui()
+#' @examplesIf interactive()
+#' translate.qsf.gui()
 #' @importFrom utils menu
 #' @export
 translate.qsf.gui <- function() {
