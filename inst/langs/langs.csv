@@ -1,8 +1,9 @@
 Code,Source,Target,Description
 en_en,English,English,English to English
+en_de,English,German,English to German
+en_it,English,Italian,English to Italian
 en_jp,English,Japanese,English to Japanese
 en_pt-pt,English,Portugese,English to Portugese
 en_pt-br,English,Portugese Brazilian,English to Portugese Brazilian
+en_es,English,Spanish,English to Spanish
 en_tr,English,Turkish,English to Turkish
-en_de,English,German,English to German
-en_it,English,Italian,English to Italian

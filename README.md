@@ -29,9 +29,11 @@ available.languages()
       Code  Source              Target                    Description
 1    en_en English             English             English to English
 2    en_jp English            Japanese            English to Japanese
-3    en_pt English           Portugese           English to Portugese
-4 en_pt-BR English Portugese Brazilian English to Portugese Brazilian
+3 en_pt-pt English           Portugese           English to Portugese
+4 en_pt-br English Portugese Brazilian English to Portugese Brazilian
 5    en_tr English             Turkish             English to Turkish
+6    en_de English              German              English to German
+7    en_it English             Italian             English to Italian
 ```
 
 ### Export translation file template
