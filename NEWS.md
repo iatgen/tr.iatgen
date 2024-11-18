@@ -1,3 +1,7 @@
+# tr.iatgen 1.1.1
+
+* Fixed German translation.
+
 # tr.iatgen 1.1.0
 
 * Added Spanish as an official translation.
