@@ -14,6 +14,39 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+
+# Using tr.iatgen
+
+This package automates translating the instructions of 'iatgen'
+generated qsf (Qualtrics survey files) to other languages using either
+officially supported or user-supplied translations.
+
+In this vignette we present some examples of how to use the functions
+provided by this pacakge. For a comprehensive tutorial see [Santos and
+collaborators (2023)](https://doi.org/10.17504/protocols.io.kxygx34jdg8j/v1).
+
+
+``` {r, eval = FALSE}
+# Load tr.iatgen
 library(tr.iatgen)
+
+# List available languages
+available.languages()
+
+# Translate an IAT to European Portuguese by specifying file path.
+translate.qsf(file = "/path/to/my_iatQSF", lang = "pt-pt")
+
+# Translate an IAT to European Portuguese specifying a destination file.
+translate.qsf(file = "/path/to/my_iatQSF", lang = "pt-pt",
+              dst_file = "/path/to/my_translated_iatQSF")
+
+# Start web interface for iatgen translation
+runApp()
+
+# Validate the translation file format
+validate.language("iat_inst.csv")
+
+# Translate a standard IAT to French,
+# assuming the 2nd column is labeled "fr" (for French) in iat_inst.csv
+translate.qsf(file = file.choose(), lang = "fr", lang_file = "iat_inst.csv")
 ```
