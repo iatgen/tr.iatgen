@@ -1,7 +1,7 @@
 Package: tr.iatgen
-Date: 2024-11-18
+Date: 2024-12-03
 Title: Translate 'iatgen' Generated QSF Files
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: c(
     person("Michal", "Kouril", , "Michal.Kouril@cchmc.org",
            role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4786-7934")),

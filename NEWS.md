@@ -3,6 +3,7 @@
 * Added examples in the vignette, pointing to
   [Santos and collaborators (2023)](https://doi.org/10.17504/protocols.io.kxygx34jdg8j/v1),
   for a comprehensive tutorial.
+* Fixed German and Italian or translation.
 
 # tr.iatgen 1.1.1
 
