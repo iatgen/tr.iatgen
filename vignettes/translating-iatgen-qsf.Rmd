@@ -22,8 +22,10 @@ generated qsf (Qualtrics survey files) to other languages using either
 officially supported or user-supplied translations.
 
 In this vignette we present some examples of how to use the functions
-provided by this pacakge. For a comprehensive tutorial see [Santos and
-collaborators (2023)](https://doi.org/10.17504/protocols.io.kxygx34jdg8j/v1).
+provided by this package. For the original paper see [Santos and
+collaborators (2026)](https://doi.org/10.1371/journal.pone.0342742),
+for a comprehensive tutorial see
+[Santos and collaborators (2023)](https://doi.org/10.17504/protocols.io.kxygx34jdg8j/v1).
 
 
 ``` {r, eval = FALSE}

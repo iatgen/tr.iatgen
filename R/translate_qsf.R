@@ -9,12 +9,12 @@
 # 1. 'en' -> lang
 # 2. src_lang -> 'en' -> lang (optionaly provided either 'en' -> src_lang or 'en' -> lang)
 # 3. src_lang -> mid_lang -> 'en' -> lang (provided file src_lang -> mid_lang)
-# 4. src_lang -> 'en' -> mid_lang -> lang (provided file mid_lan -> lang)
+# 4. src_lang -> 'en' -> mid_lang -> lang (provided file mid_lang -> lang)
 #'
 #' @param file qsf file
 #' @param lang Target language (abbreviation).
 #' @param lang_file CSV file containing custom translation.
-#' @param src_lang Source language -- "en" for english is the only supported one.
+#' @param src_lang Source language -- "en" for English is the only supported one.
 #' @param dst_file save the translated file as. If NULL temporary file will be created.
 #'
 #' @return Translated file path/location (class: character)
@@ -60,7 +60,7 @@ translate.qsf <-
     )
 
     if (is.null(src_qsf_content)) {
-      return(NULL)
+      return(NULL) # not tested
     }
 
     # first check if we are provided with a custom language file
@@ -68,7 +68,7 @@ translate.qsf <-
       ret_lang <- validate.language(file = lang_file, src_lang = src_lang)
       if (is.null(ret_lang)) {
         stop("Invalid language file.")
-        return(NULL)
+        return(NULL) # not tested
       }
       inst <- tryCatch(
         {
@@ -83,13 +83,11 @@ translate.qsf <-
         (lang %in% ret_lang || lang %in% paste0("en", "_", ret_lang))
       ) {
         lang <- as.character(lang)
-      } else {
-        stop(
-          "Invalid `lang` or `src_lang` provided. Please check your custom translation file\n"
-        )
+      } else { # not tested
+        stop("Invalid `lang` or `src_lang` provided. Please check your custom translation file\n")
       }
 
-      # if there is no custom langugage file work with built-in translations
+      # if there is no custom language file work with built-in translations
     } else {
       available_translation_code <- available.languages()$Code
 
@@ -107,7 +105,7 @@ translate.qsf <-
       if (length(lang_arr) == 2) {
         lang <- lang_arr[2]
 
-        # FIXME: validate lang_arr[1]?
+        # FIXME: validate lang_arr[1]? (not tested)
       }
 
       builtin_lang_file <- file.path("langs", paste0(src_lang, "_", lang, ".csv"))
@@ -118,7 +116,7 @@ translate.qsf <-
         {
           read.csv(builtin_lang_file, check.names = FALSE)
         },
-        error = function(cond) {
+        error = function(cond) { # not tested
           message(paste("Unable to read builtin lang file:", builtin_lang_file))
           message("Here's the original error message:")
           message(cond)
@@ -132,14 +130,14 @@ translate.qsf <-
     }
 
     # now we have inst (mapping from src to dst language)
-    if (is.null(dst_file)) {
+    if (is.null(dst_file)) { # not tested
       dst_file <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".qsf")
     }
 
     # Prepare for translation.
     from <- as.character(src_lang)
     src_qsf_content <- as.character(src_qsf_content)
-    if (!lang %in% colnames(inst)) {
+    if (!lang %in% colnames(inst)) { # not tested
       stop(
         paste(
           "The `to` language column name provided is not available in the translations file!\nPlease provide a valid language column name in the tr_iatgen() function call and try again.\n",
@@ -154,15 +152,15 @@ translate.qsf <-
 
       if (src_lang %in% colnames(inst)) {
         # src_lang and lang included go direct
-        for (i in seq_len(nrow(inst))) {
+        for (i in seq_len(nrow(inst))) { # not tested
           src_qsf_content <- gsub(inst[i, src_lang], inst[i, lang], src_qsf_content, fixed = TRUE)
         }
-      } else {
+      } else { # not tested
         # src_lang not included -- first see if we can "untranslate" to 'en'
       }
     } else {
       # src_lang is 'en'
-      if (!src_lang %in% colnames(inst)) {
+      if (!src_lang %in% colnames(inst)) { # not tested
         stop(
           "The `from` language column name provided is not available in the translations file!\nPlease provide a valid from language column name or none at all in the tr_iatgen() function call and try again.\n"
         )
