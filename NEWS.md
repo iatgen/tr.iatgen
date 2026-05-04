@@ -1,3 +1,7 @@
+# tr.iatgen 1.1.4
+
+* Updated `inst/CITATION` to prioritize citing the associated paper (Santos et al., 2026, PLOS ONE) and protocol (Santos et al., 2024, protocols.io) before the R package itself.
+
 # tr.iatgen 1.1.2
 
 * Added examples in the vignette, pointing to
