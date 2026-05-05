@@ -1,0 +1,50 @@
+citHeader("Please cite the following paper when using tr.iatgen:")
+
+bibentry(bibtype = "Article",
+  title = "Implicit association tests for all: Using iatgen for non-English and offline samples",
+  author = c(
+    as.person("João O. Santos"),
+    as.person("Emerson Do Bú"),
+    as.person("Tomohiro Hara"),
+    as.person("Cristina Mendonça"),
+    as.person("Sara Hagá"),
+    as.person("Ruth Pogacar"),
+    as.person("Michal Kouril")
+  ),
+  journal = "PLOS ONE",
+  year = "2026",
+  volume = "21",
+  number = "4",
+  pages = "1-8",
+  doi = "10.1371/journal.pone.0342742",
+  url = "https://doi.org/10.1371/journal.pone.0342742"
+)
+
+bibentry(bibtype = "Manual",
+  header = "The software was developed alongside the following protocol:",
+  title = "Generating Non-English IATs and Collecting Offline Samples",
+  author = c(
+    as.person("João O. Santos"),
+    as.person("Emerson Do Bú"),
+    as.person("Tomohiro Hara"),
+    as.person("Cristina Mendonça"),
+    as.person("Sara Hagá"),
+    as.person("Ruth Pogacar"),
+    as.person("Michal Kouril")
+  ),
+  journal = "protocols.io",
+  year = "2024",
+  month = "01",
+  doi = "10.17504/protocols.io.kxygx34jdg8j/v1",
+  url = "https://doi.org/10.17504/protocols.io.kxygx34jdg8j/v1"
+)
+
+bibentry(bibtype = "Manual",
+  header = "To cite the tr.iatgen package itself, use:",
+  title = "tr.iatgen: Translate 'iatgen' Generated QSF Files",
+  author = c(as.person("Michal Kouril"), as.person("João O. Santos")),
+  year = "2026",
+  note = "R package version 1.1.4",
+  url = "https://CRAN.R-project.org/package=tr.iatgen",
+  doi = "10.32614/CRAN.package.tr.iatgen"
+)

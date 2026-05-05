@@ -5,8 +5,8 @@
 #' 2 columns and 28 rows:
 #' * the first column contains the english language text (as compared to the template file)
 #' * the second column contains the translation of the first column in a target language
-#' The first rows contains heading -- heading of the first column is "en" for English
-#' and the heading of the second colum is iana formatted target langugage specifier.
+#' The first row contains heading -- heading of the first column is "en" for English
+#' and the heading of the second column is iana formatted target language specifier.
 #'
 #' @param file Source CSV file to validate
 #' @param src_lang Source language -- "en" for english is the only supported one.

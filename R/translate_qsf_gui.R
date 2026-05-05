@@ -1,4 +1,4 @@
-#' @title Graphical user interface (GUI) to translate iatgen generate QSF file
+#' @title Graphical user interface (GUI) to translate iatgen generated QSF file
 #'
 #' @description
 #' This function allows you to translate an iatgen QSF file by visually
