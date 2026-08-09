@@ -10,7 +10,7 @@ Authors@R: c(
 Description: Automates translating the instructions of 'iatgen' generated qsf
              (Qualtrics survey files) to other languages using either officially
              supported or user-supplied translations (see Santos et al., 2026
-             <doi:10.1371/journal.pone.0342742>
+             <doi:10.1371/journal.pone.0342742>).
 URL: https://github.com/iatgen/tr.iatgen
 BugReports: https://github.com/iatgen/tr.iatgen/issues
 License: MIT + file LICENSE
