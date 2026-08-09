@@ -81,7 +81,7 @@ library(tr.iatgen)
 tr.iatgen::runApp()
 ```
 
-![runApp output](https://github.com/iatgen/tr.iatgen/blob/main/vignettes/runApp.png?raw=true)
+![runApp output](man/figures/runApp.png)
 
 
 ## Translation identifier format
