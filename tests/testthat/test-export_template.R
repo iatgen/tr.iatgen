@@ -19,3 +19,16 @@ test_that("export template returns a path to a real file", {
 
   expect_true(file.exists(p))
 })
+
+test_that("export.template() honours an explicit src_lang", {
+  expect_equal(export.template("en"), export.template())
+})
+
+test_that("export.template() errors for a source language with no template", {
+  # Previously any src_lang silently returned the English template.
+  expect_error(
+    export.template("de"),
+    "No translation template available",
+    fixed = TRUE
+  )
+})

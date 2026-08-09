@@ -15,6 +15,6 @@
 #' @importFrom shiny runApp
 #' @export
 runApp <- function(...) {
-  appDir <- system.file("shiny/app.R", package = "tr.iatgen")
+  appDir <- pkg.file("shiny/app.R")
   shiny::runApp(..., appDir = appDir)
 }

@@ -19,7 +19,7 @@ user-friendly for less technical users.
 See the official iatgen website for a web based alternative.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 translate.qsf.gui()
 \dontshow{\}) # examplesIf}
 }
