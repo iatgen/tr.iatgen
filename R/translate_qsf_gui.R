@@ -22,11 +22,18 @@ translate.qsf.gui <- function() {
     graphics = TRUE,
     "After clicking 'Ok' please select the Qualtrics QSF you wish to translate"
   )
-  f <- file.choose()
+  f <- choose.file()
   l <- menu(gsub("^en_", "", langs$Code),
     graphics = TRUE,
     title = "Please select the language you want to translate TO"
   )
+  # menu() returns the *index* of the selection, or 0 when it is cancelled.
+  if (l == 0) {
+    message("No language selected -- aborting.")
+    return(invisible(NULL))
+  }
+  lang <- langs$Code[l]
+
   lf <- NULL
   # TODO: If we start accepting src_lang != "en", then add a menu here
   # sl <- menu()
@@ -35,15 +42,15 @@ translate.qsf.gui <- function() {
     graphics = TRUE,
     title = "After clicking 'Ok' please select the location and name for the file where your translated QSF file will be saved"
   )
-  df <- file.choose(new = TRUE)
-  custom_lf <- menu(c("no (default)", "yes (you'll be prompted to select it"),
+  df <- choose.file(new = TRUE)
+  custom_lf <- menu(c("no (default)", "yes (you'll be prompted to select it)"),
     graphics = TRUE,
     title = "Will you be using a custom translation file?"
   )
 
   if (custom_lf == 2) {
-    lf <- file.choose()
+    lf <- choose.file()
   }
 
-  translate.qsf(file = f, lang = l, lang_file = lf, src_lang = sl, dst_file = df)
+  translate.qsf(file = f, lang = lang, lang_file = lf, src_lang = sl, dst_file = df)
 }

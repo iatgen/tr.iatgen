@@ -20,8 +20,17 @@
 #' @importFrom utils read.csv
 #' @export
 validate.language <- function(file, src_lang = "en") {
-  csv <- read.csv(file, check.names = FALSE)
-  template_csv <- read.csv(system.file("templates/en_en.csv", package = "tr.iatgen"))
+  # An unreadable/missing file is reported the same way as an invalid one.
+  csv <- tryCatch(
+    suppressWarnings(read.csv(file, check.names = FALSE)),
+    error = function(cond) NULL
+  )
+
+  if (is.null(csv)) {
+    return(NULL)
+  }
+
+  template_csv <- read.csv(pkg.file("templates/en_en.csv"))
 
 
 
@@ -34,7 +43,7 @@ validate.language <- function(file, src_lang = "en") {
       # check if the strings in the first column correspond to our template
       all(sort(csv$en) == sort(template_csv$en)) &&
       # check if the all cells have non-empty strings
-      all(!(csv == "")) &&
+      all(!is.na(csv) & csv != "") &&
       # if multiple translations make sure they are called distinctly
       length(unique(names(csv)[-1])) == length(names(csv)[-1])
   ) {

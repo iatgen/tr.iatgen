@@ -19,7 +19,7 @@ It is a pass through function to shiny::runApp.
 \figure{runApp.png}
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # this will start the shiny UI
 tr.iatgen::runApp()
 \dontshow{\}) # examplesIf}
