@@ -9,7 +9,7 @@ validate.language(file, src_lang = "en")
 \arguments{
 \item{file}{Source CSV file to validate}
 
-\item{src_lang}{Source language -- "en" for english is the only supported one.}
+\item{src_lang}{Source language -- "en" for English is the only supported one.}
 }
 \value{
 Heading of the second column (language identifier, class: character) if successful, NULL if error
@@ -18,10 +18,10 @@ Heading of the second column (language identifier, class: character) if successf
 The validate.language function reads in csv file which is expected to contain
 2 columns and 28 rows:
 \itemize{
-\item the first column contains the english language text (as compared to the template file)
+\item the first column contains the English language text (as compared to the template file)
 \item the second column contains the translation of the first column in a target language
-The first rows contains heading -- heading of the first column is "en" for English
-and the heading of the second colum is iana formatted target langugage specifier.
+The first row contains heading -- heading of the first column is "en" for English
+and the heading of the second column is iana formatted target language specifier.
 }
 }
 \examples{

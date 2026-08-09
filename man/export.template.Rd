@@ -7,7 +7,7 @@
 export.template(src_lang = "en")
 }
 \arguments{
-\item{src_lang}{Source language -- "en" for english is the only supported one.}
+\item{src_lang}{Source language -- "en" for English is the only supported one.}
 }
 \value{
 The path to the template file (class: character). An error is raised

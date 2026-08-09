@@ -3,13 +3,13 @@
 #' @description
 #' The validate.language function reads in csv file which is expected to contain
 #' 2 columns and 28 rows:
-#' * the first column contains the english language text (as compared to the template file)
+#' * the first column contains the English language text (as compared to the template file)
 #' * the second column contains the translation of the first column in a target language
 #' The first row contains heading -- heading of the first column is "en" for English
 #' and the heading of the second column is iana formatted target language specifier.
 #'
 #' @param file Source CSV file to validate
-#' @param src_lang Source language -- "en" for english is the only supported one.
+#' @param src_lang Source language -- "en" for English is the only supported one.
 #'
 #' @return Heading of the second column (language identifier, class: character) if successful, NULL if error
 #'

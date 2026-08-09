@@ -2,7 +2,7 @@
 % Please edit documentation in R/translate_qsf_gui.R
 \name{translate.qsf.gui}
 \alias{translate.qsf.gui}
-\title{Graphical user interface (GUI) to translate iatgen generate QSF file}
+\title{Graphical user interface (GUI) to translate iatgen generated QSF file}
 \usage{
 translate.qsf.gui()
 }

@@ -146,7 +146,7 @@ translate.qsf <-
       )
     }
 
-    # If src is not english translate to english first.
+    # If src is not English translate to English first.
     if (src_lang != "en") {
       # either the profided file has both src_lang and lang included or we go through 'en'
 

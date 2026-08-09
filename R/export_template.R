@@ -1,6 +1,6 @@
 #' @title Export blank translation template
 #'
-#' @param src_lang Source language -- "en" for english is the only supported one.
+#' @param src_lang Source language -- "en" for English is the only supported one.
 #'
 #' @return The path to the template file (class: character). An error is raised
 #'   if no template is shipped for `src_lang`.

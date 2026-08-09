@@ -13,7 +13,7 @@ translate.qsf(file, lang, lang_file = NULL, src_lang = "en", dst_file = NULL)
 
 \item{lang_file}{CSV file containing custom translation.}
 
-\item{src_lang}{Source language -- "en" for english is the only supported one.}
+\item{src_lang}{Source language -- "en" for English is the only supported one.}
 
 \item{dst_file}{save the translated file as. If NULL temporary file will be created.}
 }
