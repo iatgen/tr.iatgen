@@ -1,4 +1,4 @@
-# tr.iatgen (development version)
+# tr.iatgen 1.1.5
 
 * Fixed `translate.qsf.gui()`, which passed the menu *index* rather than the
   selected language code to `translate.qsf()` and so failed on every run. It
@@ -19,7 +19,9 @@
   error.
 * `export.template()` honours `src_lang` and errors for source languages that
   have no template, instead of silently returning the English one.
-* Added test coverage reporting to Codecov via GitHub Actions.
+* Fixed the broken `runApp()` screenshot link in the README.
+* Added test coverage reporting to Codecov via GitHub Actions; the package
+  is now fully covered by its test suite.
 
 # tr.iatgen 1.1.4
 
